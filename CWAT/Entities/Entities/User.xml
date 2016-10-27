@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Entity Name="User">
+  <Model Project="Cellent.Template.ClientModule.User" ModelSubFolder="Models" FactorySubFolder="ModelFactories" />
+  <DomainModel SubFolder="Entities" Project="Cellent.Template.Domain.UserModule" InterfacesProject="Cellent.Template.Domain" />
+  <DomainFactory SubFolder="Factories" Project="Cellent.Template.Domain.UserModule" />
+  <DomainMapper SubFolder="DomainMapper" Project="Cellent.Template.Domain.UserModule" />
+  <DaoMapper SubFolder="DaoMapper" Project="Cellent.Template.Domain.UserModule" />
+  <Repositoriy SubFolder ="Entities" Project="Cellent.Template.Repository" />
+  <Attributes>
+    <Attribute Name="Name" Type="String" MinLength="5" Length="100" IsNullable="False" />
+    <Attribute Name="Firstname" Type="String" Length="100" IsNullable="False" />
+    <Attribute Name="Lastname" Type="String" Length="100" IsNullable="False" />
+    <Attribute Name="Company" Type="String" Length="50" />
+    <Attribute Name="Department" Type="String" Length="50" />
+    <Attribute Name="Workplace" Type="String" Length="100" />
+    <Attribute Name="Manager" Type="String" Length="100" />
+    <Attribute Name="Email" Type="String" Length="100" IsEmail="True" />
+    <Attribute Name="Phone" Type="String" Length="50" />
+    <Attribute Name="Mobile" Type="String" Length="50" />
+    <Attribute Name="Fax" Type="String" Length="50" />
+    <Attribute Name="LastLogin" Type="DateTime?" />
+    <Attribute Name="Deactivated" Type="bool" IsNullable="False" />
+  </Attributes>
+</Entity>

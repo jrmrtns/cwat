@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Entity Name="ChangeLog">
+  <DomainModel SubFolder ="Entities" Project="Cellent.Template.Domain.MasterDataModule" InterfacesProject="Cellent.Template.Domain.Core" />
+  <DomainFactory SubFolder ="Factories" Project="Cellent.Template.Domain.MasterDataModule" />
+  <DomainMapper SubFolder ="DomainMapper" Project="Cellent.Template.Domain.MasterDataModule" />
+  <DaoMapper SubFolder ="DaoMapper" Project="Cellent.Template.Domain.MasterDataModule" />
+  <Repositoriy SubFolder ="Entities" Project="Cellent.Template.Domain.Core" />
+  <Attributes>
+    <Attribute Name="ObjectId" Type="Guid" IsNullable="True" />
+    <Attribute Name="OldValue" Type="String" Length="200" IsNullable="True" />
+    <Attribute Name="NewValue" Type="String" Length="200" IsNullable="True" />
+    <Attribute Name="Property" Type="String" Length="200" IsNullable="False" />
+  </Attributes>
+</Entity>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" ?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="VSIX.Jürgen Martens.a48806cd-3d9d-4a17-a107-478e19da9920" Version="1.0" Language="de-DE" Publisher="Jürgen Martens" />
+    <DisplayName>cellent WPF Template</DisplayName>
+    <Description xml:space="preserve">cellent WPF Template</Description>
+    <GettingStartedGuide>index.html</GettingStartedGuide>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[14.0,15.0)" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+  </Dependencies>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Assembly" d:Source="Project" d:ProjectName="Wizard" Path="|Wizard|" AssemblyName="|Wizard;AssemblyName|" />
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="File" Path="ProjectTemplates" d:TargetPath="ProjectTemplates\Cellent.Template.zip" />
+  </Assets>
+</PackageManifest>

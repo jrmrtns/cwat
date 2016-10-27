@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Entity Name="Resource">
+  <Model Project="Cellent.Template.ClientModule.Resource" ModelSubFolder ="Models" FactorySubFolder="ModelFactories" />
+  <DomainModel SubFolder ="Entities" Project="Cellent.Template.Domain.ResourceModule" InterfacesProject="Cellent.Template.Domain" />
+  <DomainFactory SubFolder ="Factories" Project="Cellent.Template.Domain.ResourceModule" />
+  <DomainMapper SubFolder ="DomainMapper" Project="Cellent.Template.Domain.ResourceModule" />
+  <DaoMapper SubFolder ="DaoMapper" Project="Cellent.Template.Domain.ResourceModule" />
+  <Repositoriy SubFolder ="Entities" Project="Cellent.Template.Repository" />
+  <Attributes>
+    <Attribute Name="Key" Type="String" Length="30" IsNullable="False" />
+    <Attribute Name="Language" Type="String" Length="5" IsNullable="False" />
+    <Attribute Name="Description" Type="String" Length="255" />
+    <Attribute Name="Translation" Type="String" Length="100" />
+  </Attributes>
+</Entity>

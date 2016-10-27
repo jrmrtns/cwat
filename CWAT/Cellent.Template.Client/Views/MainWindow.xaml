@@ -1,0 +1,80 @@
+﻿<Window
+    x:Class="Cellent.Template.Client.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="" Height="768" Width="1224"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:dialog="clr-namespace:Cellent.Template.Client.WindowActions"
+    xmlns:markupExtensions="clr-namespace:Cellent.Template.Client.Core.MarkupExtensions;assembly=Cellent.Template.Client.Core"
+    xmlns:mvvm="http://prismlibrary.com/"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="clr-namespace:Cellent.Template.Client.ViewModels"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    mc:Ignorable="d"
+    WindowState="Maximized"
+    ResizeMode="CanResizeWithGrip" MinHeight="300" MinWidth="480"
+    mvvm:ViewModelLocator.AutoWireViewModel="true"
+    d:DataContext="{d:DesignInstance viewModels:MainWindowViewModel}"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    Background="{DynamicResource MaterialDesignPaper}"
+    TextElement.FontWeight="Regular"
+    TextElement.FontSize="14"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Noto/#Noto"
+    Icon="/Cellent.Template.Client;component/cellent.ico">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Cellent.Template.Client.Core;component/Assets/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Raised" SourceObject="{Binding ConfirmationInteractionRequest}">
+            <i:EventTrigger.Actions>
+                <dialog:ConfirmationWindowAction />
+            </i:EventTrigger.Actions>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Loaded">
+            <ei:CallMethodAction MethodName="Initialize" TargetObject="{Binding}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <materialDesign:DialogHost Identifier="RootDialog">
+        <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding IsMenuOpen, Mode=TwoWay}">
+            <materialDesign:DrawerHost.LeftDrawerContent>
+                <DockPanel MinWidth="212">
+                    <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}"
+                                  DockPanel.Dock="Top"
+                                  HorizontalAlignment="Right" Margin="16"
+                                  IsChecked="{Binding IsMenuOpen, Mode=TwoWay}" />
+                    <ListBox x:Name="DemoItemsListBox" Margin="0" SelectedIndex="0">
+                        <MenuItem Header="{markupExtensions:Translate ResourceList}" Command="{Binding NavigateToResources}" CommandParameter="ResourceList" />
+                        <MenuItem Header="{markupExtensions:Translate ListUser}" Command="{Binding NavigateToResources}" CommandParameter="ListUser" />
+                    </ListBox>
+                </DockPanel>
+            </materialDesign:DrawerHost.LeftDrawerContent>
+            <DockPanel>
+                <materialDesign:ColorZone Padding="16" materialDesign:ShadowAssist.ShadowDepth="Depth2" Mode="PrimaryMid" DockPanel.Dock="Top">
+                    <DockPanel>
+                        <ToggleButton Style="{StaticResource MaterialDesignHamburgerToggleButton}" IsChecked="{Binding IsMenuOpen, Mode=TwoWay}" />
+                        <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                            <StackPanel>
+                                <Button Content="{markupExtensions:Translate ResourceList}" Command="{Binding NavigateToResources}" CommandParameter="ResourceList" />
+                                <Separator />
+                                <Button Content="{markupExtensions:Translate ListUser}" Command="{Binding NavigateToResources}" CommandParameter="ListUser" />
+                            </StackPanel>
+                        </materialDesign:PopupBox>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Text="{markupExtensions:Translate ApplicationTitle}" />
+                    </DockPanel>
+                </materialDesign:ColorZone>
+                <ContentControl FocusVisualStyle="{x:Null}"  mvvm:RegionManager.RegionName="MainRegion" Margin="16, 60, 16, 16" />
+            </DockPanel>
+        </materialDesign:DrawerHost>
+    </materialDesign:DialogHost>
+</Window>

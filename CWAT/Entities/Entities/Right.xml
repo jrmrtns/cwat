@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Entity Name="Right">
+  <Model Project="Cellent.Template.ClientModule.User" ModelSubFolder ="Models" FactorySubFolder="ModelFactories" />
+  <DomainModel SubFolder ="Entities" Project="Cellent.Template.Domain.UserModule" InterfacesProject="Cellent.Template.Domain" />
+  <DomainFactory SubFolder ="Factories" Project="Cellent.Template.Domain.UserModule" />
+  <DomainMapper SubFolder ="DomainMapper" Project="Cellent.Template.Domain.UserModule" />
+  <DaoMapper SubFolder ="DaoMapper" Project="Cellent.Template.Domain.UserModule" />
+  <Repositoriy SubFolder ="Entities" Project="Cellent.Template.Repository" />
+  <Attributes>
+    <Attribute Name="Name" Type="String" Length="100" IsNullable="False" />
+    <Attribute Name="Description" Type="String" Length="100" />
+    <Attribute Name="Claim" Type="String" Length="100" IsNullable="False" />
+    <Attribute Name="Resource" Type="String" Length="100" IsNullable="False" />
+  </Attributes>
+</Entity>

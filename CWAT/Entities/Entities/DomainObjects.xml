@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Entity Name="DomainObject">
+  <DomainModel SubFolder="Entities" Project="Cellent.Template.Domain.MasterDataModule" InterfacesProject="Cellent.Template.Domain.Core" />
+  <DomainFactory SubFolder="Factories" Project="Cellent.Template.Domain.MasterDataModule" />
+  <DomainMapper SubFolder="DomainMapper" Project="Cellent.Template.Domain.MasterDataModule" />
+  <DaoMapper SubFolder="DaoMapper" Project="Cellent.Template.Domain.MasterDataModule" />
+  <Repositoriy SubFolder ="Entities" Project="Cellent.Template.Domain.Core" />
+  <Attributes>
+    <Attribute Name="Type" Type="String" Length="200" IsNullable="False" />
+    <Attribute Name="Assembly" Type="String" Length="100" IsNullable="False" />
+    <Attribute Name="EntityType" Type="String" Length="200" IsNullable="True" />
+    <Attribute Name="EntityAssembly" Type="String" Length="100" IsNullable="False" />
+    <Attribute Name="DisplayName" Type="String" Length="100" IsNullable="True" />
+  </Attributes>
+</Entity>

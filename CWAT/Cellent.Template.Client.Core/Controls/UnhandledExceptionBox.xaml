@@ -1,0 +1,63 @@
+﻿<Window x:Class="Cellent.Template.Client.Core.Controls.UnhandledExceptionBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:markupExtensions="clr-namespace:Cellent.Template.Client.Core.MarkupExtensions"
+             Width="460"
+              SizeToContent="Height"
+             WindowStartupLocation="CenterScreen"
+             Title="{markupExtensions:TranslateExtension UnhandledErrorOccurred}">
+
+    <Grid Margin="10" MinWidth="400">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Cellent.Template.Client.Core;component/Assets/Images/error-sign.png" Width="32" Height="32" Margin="5" />
+
+        <TextBlock Name="txtBlockMessage" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" Margin="5" />
+
+        <TextBlock Name="txtBlockExceptionMessage" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Margin="5" />
+
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,20,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Click="ButtonDetails_Click" Width="Auto">
+                <TextBlock Text="{markupExtensions:Translate MoreDetails}" ></TextBlock>
+            </Button>
+
+            <Button Grid.Column="1" Click="ButtonSendFeedback_Click"   Margin="5,0,5,0" Width="Auto">
+                <TextBlock Text="{markupExtensions:TranslateExtension SendFeedback}"></TextBlock>
+            </Button>
+            <Button Grid.Column="2" Click="ButtonClose_Click">
+                <TextBlock Text="{markupExtensions:TranslateExtension Close}" ></TextBlock>
+            </Button>
+        </Grid>
+
+        <TextBox Visibility="Collapsed"
+                 ScrollViewer.CanContentScroll="True"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                 Name="txtBlockExceptionDetails"
+                 Grid.Row="3"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 TextWrapping="Wrap"
+                 IsReadOnly="True"
+                 Margin="5"
+                 Height="200"
+                 FontFamily="Daimler CS Demi"
+                 FontSize="15">
+        </TextBox>
+    </Grid>
+</Window>
