@@ -1,11 +1,11 @@
 # cellent WPF Application Template
 
-## Build solution
+## Build project
 After building the solution there is a file called "cellent Template.vsix" in the output of the VSIX project.
 Double click this file and the template will be installed in Visual Studio. 
 
-## Create solution
-In Visual Studio create a new project and select the "cellent Template" as template.
+## Create solution from template
+In Visual Studio create a new project and select the "cellent WPF Solution Template" as template.
 
 ## First steps after running the template 
 - Adjust connection string in "projectname".Service/app.config

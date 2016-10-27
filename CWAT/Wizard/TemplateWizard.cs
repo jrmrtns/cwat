@@ -36,7 +36,7 @@ namespace VSIX
 
         public void RunFinished()
         {
-            _dte.ItemOperations.Navigate("http://www.cellent.de", vsNavigateOptions.vsNavigateOptionsNewWindow);
+            _dte.ItemOperations.Navigate("https://github.com/jrmrtns/cwat", vsNavigateOptions.vsNavigateOptionsNewWindow);
         }
 
         // Add global replacement parameters
