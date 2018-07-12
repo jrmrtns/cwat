@@ -1,0 +1,133 @@
+﻿<UserControl
+    x:Class="Cellent.Template.ClientModule.User.Views.CreateUserView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:markupExtensions="clr-namespace:Cellent.Template.Client.Core.MarkupExtensions;assembly=Cellent.Template.Client.Core"
+    xmlns:xctk="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+    xmlns:mvvm="http://prismlibrary.com/"
+    xmlns:extensions="clr-namespace:Cellent.Template.Client.Core.Extensions;assembly=Cellent.Template.Client.Core"
+    xmlns:viewModels="clr-namespace:Cellent.Template.ClientModule.User.ViewModels"
+    xmlns:ei="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance viewModels:CreateUserViewModel, IsDesignTimeCreatable=False}"
+    mvvm:ViewModelLocator.AutoWireViewModel="true"
+    x:Name="Window">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Cellent.Template.Client.Core;component/Assets/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <ei:CallMethodAction MethodName="LoadData" TargetObject="{Binding}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <xctk:BusyIndicator IsBusy="{Binding IsDataLoading}" BusyContent="{markupExtensions:TranslateExtension Loading}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <DockPanel LastChildFill="True" Margin="0,0,0,32">
+                    <TextBlock Style="{StaticResource MaterialDesignDisplay1TextBlock}">
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="UserModel.Firstname" />
+                                <Binding Path="UserModel.Lastname" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DockPanel>
+
+                <WrapPanel>
+                    <Grid>
+                        <Grid>
+                            <GroupBox Header="{markupExtensions:TranslateExtension Details}">
+                                <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" MinWidth="200" />
+                                        <ColumnDefinition Width="*" MinWidth="400" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" MinHeight="60" />
+                                        <RowDefinition Height="*" MinHeight="60" />
+                                        <RowDefinition Height="*" MinHeight="60" />
+                                        <RowDefinition Height="*" MinHeight="60" />
+                                        <RowDefinition Height="*" MinHeight="60" />
+                                        <RowDefinition Height="*" MinHeight="60" />
+                                        <RowDefinition Height="*" MinHeight="60" />
+                                        <RowDefinition Height="*" MinHeight="60" />
+                                        <RowDefinition Height="*" MinHeight="60" />
+                                        <RowDefinition Height="*" MinHeight="60" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Column="0" Grid.Row="0" Text="{markupExtensions:TranslateExtension Name}" />
+                                    <TextBox Grid.Column="1" Grid.Row="0" extensions:FocusExtension.IsFocused="{Binding IsNameFocused}"
+                                             IsEnabled="{Binding CanEditUser}" HorizontalAlignment="Stretch" VerticalAlignment="Top" TextWrapping="Wrap"
+                                             Text="{Binding UserModel.Name, ValidatesOnDataErrors=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                                    <TextBlock Grid.Column="0" Grid.Row="1" Text="{markupExtensions:TranslateExtension Lastname}" />
+                                    <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding UserModel.Lastname,
+                                        ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" IsEnabled="{Binding CanEditUser}" />
+
+                                    <TextBlock Grid.Column="0" Grid.Row="2" Text="{markupExtensions:TranslateExtension Firstname}" />
+                                    <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding UserModel.Firstname,
+                                        ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"  IsEnabled="{Binding CanEditUser}" />
+
+                                    <TextBlock Grid.Column="0" Grid.Row="3" Text="{markupExtensions:TranslateExtension Company}" />
+                                    <TextBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding UserModel.Company,
+                                        ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"  IsEnabled="{Binding CanEditUser}" />
+
+                                    <TextBlock Grid.Column="0" Grid.Row="4" Text="{markupExtensions:TranslateExtension Department}" />
+                                    <TextBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding UserModel.Department,
+                                        ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"  IsEnabled="{Binding CanEditUser}" />
+
+                                    <TextBlock Grid.Column="0" Grid.Row="5" Text="{markupExtensions:TranslateExtension Workplace}" />
+                                    <TextBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding UserModel.Workplace,
+                                        ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"  IsEnabled="{Binding CanEditUser}" />
+
+                                    <TextBlock Grid.Column="0" Grid.Row="6" Text="{markupExtensions:TranslateExtension Manager}" />
+                                    <TextBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding UserModel.Manager,
+                                        ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" IsEnabled="{Binding CanEditUser}" />
+
+                                    <TextBlock Grid.Column="0" Grid.Row="7" Text="{markupExtensions:TranslateExtension Phone}" />
+                                    <TextBox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding UserModel.Phone,
+                                        ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"  IsEnabled="{Binding CanEditUser}" />
+
+                                    <TextBlock Grid.Column="0" Grid.Row="8" Text="{markupExtensions:TranslateExtension Mobile}" />
+                                    <TextBox Grid.Column="1" Grid.Row="8" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding UserModel.Mobile,
+                                        ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"  IsEnabled="{Binding CanEditUser}" />
+
+                                    <TextBlock Grid.Column="0" Grid.Row="9" Text="{markupExtensions:TranslateExtension Email}" />
+                                    <TextBox Grid.Column="1" Grid.Row="9" HorizontalAlignment="Stretch"  TextWrapping="Wrap" Text="{Binding UserModel.Email,
+                                        ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"  IsEnabled="{Binding CanEditUser}" />
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </Grid>
+
+                    <StackPanel Margin="20,0,0,20">
+                        <GroupBox Header="{markupExtensions:TranslateExtension Role}">
+                            <ComboBox
+                                Margin="0,10,0,20"
+                                ItemsSource="{Binding Path=Roles}"
+                                SelectedValue="{Binding Path=UserModel.Role, Mode=TwoWay, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                DisplayMemberPath="Name"
+                                IsEnabled="{Binding CanEditRole}" MinWidth="300" />
+                        </GroupBox>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="{markupExtensions:Translate OK}" Command="{Binding OkCommand}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" />
+                            <Button Content="{markupExtensions:Translate Cancel}" Command="{Binding CancelCommand}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5" />
+                        </StackPanel>
+                    </StackPanel>
+                </WrapPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </xctk:BusyIndicator>
+</UserControl>

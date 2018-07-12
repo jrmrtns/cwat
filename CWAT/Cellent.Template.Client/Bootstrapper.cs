@@ -30,6 +30,7 @@ using System.ServiceModel;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+using Cellent.Template.ClientModule.Resource;
 
 namespace Cellent.Template.Client
 {
@@ -67,7 +68,7 @@ namespace Cellent.Template.Client
         {
             base.ConfigureModuleCatalog();
 
-            Type module = typeof(Module);
+            Type module = typeof(ClientModule.User.Module);
             ModuleCatalog.AddModule(
               new ModuleInfo
               {
